@@ -1,14 +1,31 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+    <ion-title>Chat</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="logout()">
+        <ion-icon name="ios-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+  <div class="chat">
+    <chat-message [messages]="messages" [user]="user"></chat-message>
+  </div>
+
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input #messageText [(ngModel)]="textMessage" type="text" placeholder="Type your message"></ion-input>
+    <ion-buttons end>
+      <button ion-button icon-end color="royal" (click)="sendMessage()">
+        Send
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
